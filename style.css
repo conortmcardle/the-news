@@ -61,6 +61,15 @@ body {
   line-height: 1;
 }
 
+.masthead-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.masthead-title a:hover {
+  text-decoration: none;
+}
+
 /* ── Section Nav ─────────────────────────────────────────── */
 .section-nav {
   display: flex;
@@ -348,6 +357,11 @@ body {
   margin: 1rem 0 0.5rem;
   column-span: none;
   text-align: left;
+}
+
+.detail-body a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .detail-body img {

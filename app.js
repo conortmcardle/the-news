@@ -32,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchArticles();
   refreshTimer = setInterval(fetchArticles, REFRESH_INTERVAL);
 
+  // Masthead home link
+  document.getElementById('masthead-home').addEventListener('click', (e) => {
+    e.preventDefault();
+    currentSection = 'All';
+    document.querySelectorAll('#section-nav button').forEach(b => b.classList.remove('active'));
+    document.querySelector('#section-nav button').classList.add('active');
+    showFrontPage();
+    fetchArticles();
+  });
+
   // Detail view back buttons
   document.getElementById('detail-back').addEventListener('click', showFrontPage);
   document.getElementById('detail-back-bottom').addEventListener('click', showFrontPage);
@@ -69,6 +79,11 @@ function buildSectionNav() {
       currentSection = section;
       nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      // If on interior page, return to front page first
+      const detail = document.getElementById('article-detail');
+      if (!detail.hidden) {
+        showFrontPage(null, false);
+      }
       fetchArticles();
     });
     nav.appendChild(btn);
@@ -226,8 +241,9 @@ function showArticleDetail(article, fromPopstate) {
     figure.hidden = true;
   }
 
-  // Body — inject the full HTML from the API
-  document.getElementById('detail-body').innerHTML = fields.body || '<p>Article body not available.</p>';
+  // Body — inject the full HTML from the API, replacing video embeds with links
+  const bodyHtml = replaceVideoEmbeds(fields.body || '<p>Article body not available.</p>');
+  document.getElementById('detail-body').innerHTML = bodyHtml;
 
   // Toggle views
   grid.hidden = true;
@@ -289,6 +305,48 @@ function stripHtml(html) {
   const tmp = document.createElement('div');
   tmp.innerHTML = html;
   return tmp.textContent || '';
+}
+
+function replaceVideoEmbeds(html) {
+  const container = document.createElement('div');
+  container.innerHTML = html;
+
+  // Replace iframes (YouTube, Vimeo, etc.)
+  container.querySelectorAll('iframe').forEach(iframe => {
+    const src = iframe.src || iframe.getAttribute('src') || '';
+    if (src) {
+      const link = document.createElement('a');
+      link.href = src;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Watch video';
+      link.style.cssText = 'display:block;color:#09357B;margin:0.5rem 0;font-style:italic;';
+      iframe.replaceWith(link);
+    } else {
+      iframe.remove();
+    }
+  });
+
+  // Replace <video> elements
+  container.querySelectorAll('video').forEach(video => {
+    const src = video.src || video.querySelector('source')?.src || '';
+    if (src) {
+      const link = document.createElement('a');
+      link.href = src;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = 'Watch video';
+      link.style.cssText = 'display:block;color:#09357B;margin:0.5rem 0;font-style:italic;';
+      video.replaceWith(link);
+    } else {
+      video.remove();
+    }
+  });
+
+  // Remove embed and object elements
+  container.querySelectorAll('embed, object').forEach(el => el.remove());
+
+  return container.innerHTML;
 }
 
 function truncate(str, maxLen) {
