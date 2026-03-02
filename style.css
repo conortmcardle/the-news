@@ -267,11 +267,19 @@ body {
   text-decoration: underline;
 }
 
-.detail-header {
+.detail-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
   padding: 1rem 0;
-  text-align: center;
-  max-width: 80%;
-  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.detail-header {
+  padding: 0;
+  text-align: left;
 }
 
 .detail-header .article-section {
@@ -282,7 +290,7 @@ body {
 
 .detail-headline {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.15;
   color: #1a1a1a;
@@ -307,15 +315,13 @@ body {
 }
 
 .detail-figure {
-  text-align: center;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .detail-image {
-  max-width: 60%;
+  width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 .detail-body {
@@ -346,7 +352,7 @@ body {
 }
 
 .detail-body p:first-child {
-  text-indent: 0;
+  text-indent: 0.8em;
 }
 
 .detail-body h2,
@@ -449,11 +455,7 @@ body {
   }
 
   .detail-headline {
-    font-size: 1.8rem;
-  }
-
-  .detail-header {
-    max-width: 100%;
+    font-size: 1.5rem;
   }
 }
 
@@ -475,10 +477,16 @@ body {
 
   .detail-body {
     column-count: 1;
+    font-size: 2.52rem;
+    line-height: 1.4;
+  }
+
+  .detail-hero {
+    grid-template-columns: 1fr;
   }
 
   .detail-headline {
-    font-size: 1.4rem;
+    font-size: 2.5rem;
   }
 
   .detail-image {
