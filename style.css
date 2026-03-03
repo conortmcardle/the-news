@@ -10,12 +10,12 @@
 }
 
 body {
-  background: #e8e0d0;
+  background: #FFFFFF;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #1a1a1a;
+  color: #363636;
   display: flex;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 0;
   min-height: 100vh;
 }
 
@@ -23,9 +23,8 @@ body {
 .broadsheet {
   width: 100%;
   max-width: 1200px;
-  background: #fdf6e3;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  background: #FFFFFF;
+  padding: 0 2.5rem;
   aspect-ratio: 597 / 749;
   overflow-y: auto;
 }
@@ -33,12 +32,12 @@ body {
 /* ── Masthead ────────────────────────────────────────────── */
 .masthead {
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .masthead-rule {
-  border-top: 2px solid #1a1a1a;
-  margin: 0.4rem 0;
+  border-top: 2px solid #121212;
+  margin: 0.2rem 0;
 }
 
 .masthead-top {
@@ -57,7 +56,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #09357B;
-  padding: 0.3rem 0;
+  padding: 0.15rem 0;
   line-height: 1;
 }
 
@@ -75,7 +74,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   flex-wrap: wrap;
 }
 
@@ -188,7 +187,7 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 700;
   line-height: 1.25;
-  color: #1a1a1a;
+  color: #121212;
 }
 
 .article-headline a {
@@ -224,7 +223,7 @@ body {
 .article-body {
   font-size: 0.78rem;
   line-height: 1.5;
-  color: #333;
+  color: #363636;
 }
 
 /* ── Article Detail (Interior Page) ──────────────────────── */
@@ -293,7 +292,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.15;
-  color: #1a1a1a;
+  color: #121212;
   margin-bottom: 0.75rem;
 }
 
@@ -330,7 +329,7 @@ body {
   column-rule: 1px solid #ccc;
   font-size: 0.84rem;
   line-height: 1.3;
-  color: #1a1a1a;
+  color: #363636;
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -342,7 +341,7 @@ body {
   font-feature-settings: "kern" 1, "liga" 1;
   letter-spacing: -0.01em;
   word-spacing: -0.05em;
-  text-justify: inter-character;
+  text-justify: inter-word;
   padding: 1rem 0 1.5rem;
 }
 
@@ -477,8 +476,8 @@ body {
 
   .detail-body {
     column-count: 1;
-    font-size: 2.52rem;
-    line-height: 1.4;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 
   .detail-hero {
