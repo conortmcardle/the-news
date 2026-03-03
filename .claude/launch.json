@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8080"],
       "port": 8080
+    },
+    {
+      "name": "nyt-broadsheet",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8081", "-d", "nyt"],
+      "port": 8081
     }
   ]
 }

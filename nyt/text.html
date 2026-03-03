@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The New York Times — Text Edition</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 8px;
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 8px 0 4px;
+    }
+    h2 {
+      font-size: 1.1em;
+      margin: 0 0 4px;
+    }
+    p {
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 4px 0;
+    }
+    a { color: #000; }
+    hr {
+      border: none;
+      border-top: 1px solid #000;
+      margin: 8px 0;
+    }
+    .date {
+      text-align: center;
+      font-size: 0.8em;
+    }
+    .switch {
+      text-align: center;
+      font-size: 0.8em;
+      margin-bottom: 4px;
+    }
+    .section-label {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: bold;
+      margin: 0;
+    }
+    .byline {
+      font-style: italic;
+      font-size: 0.8em;
+      color: #333;
+    }
+    .trail {
+      font-size: 0.85em;
+      color: #333;
+    }
+    .article-body p {
+      text-indent: 1em;
+      margin: 2px 0;
+    }
+    .entry {
+      padding: 8px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .toggle {
+      font-size: 0.85em;
+    }
+    .source {
+      font-size: 0.8em;
+    }
+    .hidden { display: none; }
+    #articles { margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>The New York Times</h1>
+  <p class="date" id="date"></p>
+  <p class="switch"><a href="index.html">Full edition</a></p>
+  <hr>
+  <div id="articles">Loading articles&#8230;</div>
+  <script>
+    (function() {
+      var API_KEY = 'bGQSx4VVAWAFVRs4FtSDspWvZwezjaiKFBPvh7TEOmffslPu';
+      var API_BASE = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+      var PER_PAGE = 10;
+      var TOTAL_PAGES = 10;
+
+      var dateEl = document.getElementById('date');
+      var now = new Date();
+      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+      dateEl.textContent = days[now.getDay()] + ', ' +
+                           months[now.getMonth()] + ' ' + now.getDate() + ', ' +
+                           now.getFullYear();
+
+      var beginDate = new Date();
+      beginDate.setDate(beginDate.getDate() - 7);
+      var beginDateStr = beginDate.getFullYear() +
+        ('0' + (beginDate.getMonth() + 1)).slice(-2) +
+        ('0' + beginDate.getDate()).slice(-2);
+
+      var baseUrl = API_BASE + '?api-key=' + API_KEY +
+        '&sort=newest' +
+        '&begin_date=' + beginDateStr;
+
+      var allArticles = [];
+      var pagesLoaded = 0;
+
+      function fetchPage(page) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', baseUrl + '&page=' + page, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              try {
+                var data = JSON.parse(xhr.responseText);
+                var results = data.response.docs || [];
+                for (var i = 0; i < results.length; i++) {
+                  allArticles.push(results[i]);
+                }
+              } catch(e) {}
+            }
+            pagesLoaded++;
+            if (pagesLoaded >= TOTAL_PAGES) {
+              if (allArticles.length > 0) {
+                renderArticles(allArticles);
+              } else {
+                showError('Failed to load articles.');
+              }
+            }
+          }
+        };
+        xhr.send();
+      }
+
+      // Stagger requests to respect 10 req/min rate limit
+      for (var p = 0; p < TOTAL_PAGES; p++) {
+        (function(page) {
+          setTimeout(function() { fetchPage(page); }, page * 6500);
+        })(p);
+      }
+
+      function renderArticles(articles) {
+        var container = document.getElementById('articles');
+        container.innerHTML = '';
+
+        if (articles.length === 0) {
+          container.textContent = 'No articles found.';
+          return;
+        }
+
+        for (var i = 0; i < articles.length; i++) {
+          var article = articles[i];
+
+          var entry = document.createElement('div');
+          entry.className = 'entry';
+
+          var section = document.createElement('p');
+          section.className = 'section-label';
+          section.textContent = article.section_name || '';
+          entry.appendChild(section);
+
+          var headline = document.createElement('h2');
+          var link = document.createElement('a');
+          link.href = '#';
+          link.textContent = (article.headline && article.headline.main) || '';
+          link.onclick = (function(idx) {
+            return function(e) {
+              e.preventDefault();
+              toggleBody(idx);
+            };
+          })(i);
+          headline.appendChild(link);
+          entry.appendChild(headline);
+
+          var bylineText = (article.byline && article.byline.original) || '';
+          if (bylineText) {
+            var byline = document.createElement('p');
+            byline.className = 'byline';
+            byline.textContent = bylineText;
+            entry.appendChild(byline);
+          }
+
+          if (article.abstract) {
+            var trail = document.createElement('p');
+            trail.className = 'trail';
+            trail.textContent = article.abstract;
+            entry.appendChild(trail);
+          }
+
+          var body = document.createElement('div');
+          body.className = 'article-body hidden';
+          body.id = 'body-' + i;
+          if (article.lead_paragraph) {
+            var bodyP = document.createElement('p');
+            bodyP.textContent = article.lead_paragraph;
+            body.appendChild(bodyP);
+          }
+          entry.appendChild(body);
+
+          var toggle = document.createElement('a');
+          toggle.href = '#';
+          toggle.className = 'toggle';
+          toggle.id = 'toggle-' + i;
+          toggle.textContent = 'Read more';
+          toggle.onclick = (function(idx) {
+            return function(e) {
+              e.preventDefault();
+              toggleBody(idx);
+            };
+          })(i);
+          entry.appendChild(toggle);
+
+          var source = document.createElement('p');
+          source.className = 'source';
+          var sourceLink = document.createElement('a');
+          sourceLink.href = article.web_url || '';
+          sourceLink.textContent = 'nytimes.com';
+          source.appendChild(sourceLink);
+          entry.appendChild(source);
+
+          container.appendChild(entry);
+        }
+      }
+
+      function toggleBody(index) {
+        var body = document.getElementById('body-' + index);
+        var toggle = document.getElementById('toggle-' + index);
+        if (body.className.indexOf('hidden') !== -1) {
+          body.className = 'article-body';
+          toggle.textContent = 'Collapse';
+        } else {
+          body.className = 'article-body hidden';
+          toggle.textContent = 'Read more';
+        }
+      }
+
+      function showError(msg) {
+        document.getElementById('articles').textContent = msg;
+      }
+    })();
+  </script>
+</body>
+</html>
