@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Guardian — Text Edition</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #000;
+      background: #fff;
+      margin: 0;
+      padding: 8px;
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 1.5em;
+      text-align: center;
+      margin: 8px 0 4px;
+    }
+    h2 {
+      font-size: 1.1em;
+      margin: 0 0 4px;
+    }
+    p {
+      font-size: 0.9em;
+      line-height: 1.4;
+      margin: 4px 0;
+    }
+    a { color: #000; }
+    hr {
+      border: none;
+      border-top: 1px solid #000;
+      margin: 8px 0;
+    }
+    .date {
+      text-align: center;
+      font-size: 0.8em;
+    }
+    .switch {
+      text-align: center;
+      font-size: 0.8em;
+      margin-bottom: 4px;
+    }
+    .section-label {
+      font-size: 0.75em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: bold;
+      margin: 0;
+    }
+    .byline {
+      font-style: italic;
+      font-size: 0.8em;
+      color: #333;
+    }
+    .trail {
+      font-size: 0.85em;
+      color: #333;
+    }
+    .article-body p {
+      text-indent: 1em;
+      margin: 2px 0;
+    }
+    .article-body h2,
+    .article-body h3 {
+      font-size: 1em;
+      margin: 8px 0 4px;
+    }
+    .article-body blockquote {
+      margin: 4px 0 4px 12px;
+      padding-left: 8px;
+      border-left: 2px solid #000;
+      font-style: italic;
+    }
+    .article-body ul,
+    .article-body ol {
+      margin: 4px 0 4px 20px;
+      font-size: 0.9em;
+    }
+    .entry {
+      padding: 8px 0;
+      border-bottom: 1px solid #ccc;
+    }
+    .toggle {
+      font-size: 0.85em;
+    }
+    .source {
+      font-size: 0.8em;
+    }
+    .hidden { display: none; }
+    #articles { margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>The Guardian</h1>
+  <p class="date" id="date"></p>
+  <p class="switch"><a href="index.html">Full edition</a></p>
+  <hr>
+  <div id="articles">Loading articles&#8230;</div>
+  <script>
+    (function() {
+      var API_KEY = '9b7bdb55-08b6-4fff-a63a-e9ce90d413ca';
+      var API_BASE = 'https://content.guardianapis.com/search';
+      var PAGE_SIZE = 50;
+      var TOTAL_PAGES = 2;
+
+      var dateEl = document.getElementById('date');
+      var now = new Date();
+      var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      var months = ['January','February','March','April','May','June',
+                    'July','August','September','October','November','December'];
+      dateEl.textContent = days[now.getDay()] + ', ' + now.getDate() + ' ' +
+                           months[now.getMonth()] + ' ' + now.getFullYear();
+
+      var fromDate = new Date();
+      fromDate.setDate(fromDate.getDate() - 7);
+      var fromDateStr = fromDate.toISOString().split('T')[0];
+
+      var baseUrl = API_BASE + '?api-key=' + API_KEY +
+        '&show-fields=headline,trailText,body,byline' +
+        '&order-by=newest' +
+        '&page-size=' + PAGE_SIZE +
+        '&from-date=' + fromDateStr;
+
+      var allArticles = [];
+      var pagesLoaded = 0;
+
+      function fetchPage(page) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', baseUrl + '&page=' + page, true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              try {
+                var data = JSON.parse(xhr.responseText);
+                var results = data.response.results || [];
+                for (var i = 0; i < results.length; i++) {
+                  allArticles.push(results[i]);
+                }
+              } catch(e) {}
+            }
+            pagesLoaded++;
+            if (pagesLoaded >= TOTAL_PAGES) {
+              if (allArticles.length > 0) {
+                renderArticles(allArticles);
+              } else {
+                showError('Failed to load articles.');
+              }
+            }
+          }
+        };
+        xhr.send();
+      }
+
+      for (var p = 1; p <= TOTAL_PAGES; p++) {
+        fetchPage(p);
+      }
+
+      function renderArticles(articles) {
+        var container = document.getElementById('articles');
+        container.innerHTML = '';
+
+        if (articles.length === 0) {
+          container.textContent = 'No articles found.';
+          return;
+        }
+
+        for (var i = 0; i < articles.length; i++) {
+          var article = articles[i];
+          var fields = article.fields || {};
+
+          var entry = document.createElement('div');
+          entry.className = 'entry';
+
+          var section = document.createElement('p');
+          section.className = 'section-label';
+          section.textContent = article.sectionName || '';
+          entry.appendChild(section);
+
+          var headline = document.createElement('h2');
+          var link = document.createElement('a');
+          link.href = '#';
+          link.textContent = fields.headline || article.webTitle;
+          link.onclick = (function(idx) {
+            return function(e) {
+              e.preventDefault();
+              toggleBody(idx);
+            };
+          })(i);
+          headline.appendChild(link);
+          entry.appendChild(headline);
+
+          if (fields.byline) {
+            var byline = document.createElement('p');
+            byline.className = 'byline';
+            byline.textContent = fields.byline;
+            entry.appendChild(byline);
+          }
+
+          if (fields.trailText) {
+            var trail = document.createElement('p');
+            trail.className = 'trail';
+            trail.textContent = stripHtml(fields.trailText);
+            entry.appendChild(trail);
+          }
+
+          var body = document.createElement('div');
+          body.className = 'article-body hidden';
+          body.id = 'body-' + i;
+          body.innerHTML = sanitizeBody(fields.body || '');
+          entry.appendChild(body);
+
+          var toggle = document.createElement('a');
+          toggle.href = '#';
+          toggle.className = 'toggle';
+          toggle.id = 'toggle-' + i;
+          toggle.textContent = 'Read full article';
+          toggle.onclick = (function(idx) {
+            return function(e) {
+              e.preventDefault();
+              toggleBody(idx);
+            };
+          })(i);
+          entry.appendChild(toggle);
+
+          var source = document.createElement('p');
+          source.className = 'source';
+          var sourceLink = document.createElement('a');
+          sourceLink.href = article.webUrl;
+          sourceLink.textContent = 'theguardian.com';
+          source.appendChild(sourceLink);
+          entry.appendChild(source);
+
+          container.appendChild(entry);
+        }
+      }
+
+      function toggleBody(index) {
+        var body = document.getElementById('body-' + index);
+        var toggle = document.getElementById('toggle-' + index);
+        if (body.className.indexOf('hidden') !== -1) {
+          body.className = 'article-body';
+          toggle.textContent = 'Collapse';
+        } else {
+          body.className = 'article-body hidden';
+          toggle.textContent = 'Read full article';
+        }
+      }
+
+      function stripHtml(html) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        return tmp.textContent || '';
+      }
+
+      function sanitizeBody(html) {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        var els = tmp.querySelectorAll('img,iframe,video,embed,object,figure,picture,svg,canvas');
+        for (var j = 0; j < els.length; j++) {
+          els[j].parentNode.removeChild(els[j]);
+        }
+        return tmp.innerHTML;
+      }
+
+      function showError(msg) {
+        document.getElementById('articles').textContent = msg;
+      }
+    })();
+  </script>
+</body>
+</html>

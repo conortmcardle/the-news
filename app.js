@@ -27,6 +27,13 @@ let articlesCache = [];
 
 // ── Initialise ──────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  // Auto-redirect Kindle browsers to text-only version
+  var ua = navigator.userAgent || '';
+  if (/Kindle|Silk/i.test(ua)) {
+    window.location.replace('text.html');
+    return;
+  }
+
   setMastheadDate();
   buildSectionNav();
   fetchArticles();
