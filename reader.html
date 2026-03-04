@@ -346,7 +346,7 @@
               var err = JSON.parse(xhr.responseText);
               urlError.textContent = err.error || 'Extraction failed.';
             } catch(e) {
-              urlError.textContent = 'Could not reach extraction server.';
+              urlError.textContent = 'Could not reach extraction server. URL fetch only works locally (python3 server.py).';
             }
             urlError.style.display = 'block';
           }
