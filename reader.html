@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Reader — The Guardian Style</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #363636;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .masthead-rule {
+      border-top: 2px solid #121212;
+      margin: 0.2rem 0;
+    }
+
+    .page-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #09357B;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    .page-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── Input Form ─────────────────────────────────── */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      color: #363636;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #09357B;
+    }
+
+    .form-group textarea {
+      min-height: 400px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .btn {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.5rem;
+      cursor: pointer;
+      border: 1px solid #121212;
+      background: #121212;
+      color: #fff;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    .btn--outline {
+      background: none;
+      color: #121212;
+    }
+
+    .btn--outline:hover {
+      background: #121212;
+      color: #fff;
+    }
+
+    /* ── Rendered Article ───────────────────────────── */
+    .rendered {
+      display: none;
+    }
+
+    .rendered.active {
+      display: block;
+    }
+
+    .input-form.hidden {
+      display: none;
+    }
+
+    .article-headline {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #121212;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-byline {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-body {
+      column-count: 5;
+      column-gap: 1.5rem;
+      column-rule: 1px solid #ccc;
+      font-size: 0.84rem;
+      line-height: 1.3;
+      color: #363636;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphenate-limit-chars: 6 3 2;
+      -webkit-hyphenate-limit-before: 3;
+      -webkit-hyphenate-limit-after: 2;
+      overflow-wrap: break-word;
+      font-kerning: normal;
+      font-feature-settings: "kern" 1, "liga" 1;
+      letter-spacing: -0.01em;
+      word-spacing: -0.05em;
+      text-justify: inter-word;
+      padding: 1rem 0 1.5rem;
+    }
+
+    .article-body p {
+      margin-bottom: 0;
+      text-indent: 0.8em;
+    }
+
+    .article-body p:first-child {
+      text-indent: 0.8em;
+    }
+
+    .toolbar {
+      padding: 0.75rem 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.65rem;
+      color: #888;
+    }
+
+    .footer a {
+      color: #09357B;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+
+      .article-body {
+        column-count: 3;
+      }
+
+      .article-headline {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .article-body {
+        column-count: 1;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      .article-headline {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="masthead-rule"></div>
+    <div class="page-title"><a href="index.html">The Guardian</a> — Article Reader</div>
+    <div class="masthead-rule"></div>
+
+    <div class="input-form" id="input-form">
+      <div class="form-group">
+        <label for="headline">Headline (optional)</label>
+        <input type="text" id="headline" placeholder="Article headline">
+      </div>
+      <div class="form-group">
+        <label for="byline">Byline (optional)</label>
+        <input type="text" id="byline" placeholder="Author name">
+      </div>
+      <div class="form-group">
+        <label for="body">Article text</label>
+        <textarea id="body" placeholder="Paste your article text here. Separate paragraphs with blank lines."></textarea>
+      </div>
+      <button class="btn" id="render-btn">Render</button>
+    </div>
+
+    <div class="rendered" id="rendered">
+      <div class="toolbar">
+        <button class="btn btn--outline" id="edit-btn">&larr; Edit</button>
+      </div>
+      <h1 class="article-headline" id="rendered-headline"></h1>
+      <p class="article-byline" id="rendered-byline"></p>
+      <div class="masthead-rule"></div>
+      <div class="article-body" id="rendered-body"></div>
+    </div>
+
+    <div class="footer">
+      <div class="masthead-rule"></div>
+      <p><a href="index.html">Back to The Guardian</a></p>
+    </div>
+  </div>
+
+  <script>
+    var renderBtn = document.getElementById('render-btn');
+    var editBtn = document.getElementById('edit-btn');
+    var inputForm = document.getElementById('input-form');
+    var rendered = document.getElementById('rendered');
+
+    renderBtn.addEventListener('click', function() {
+      var headline = document.getElementById('headline').value.trim();
+      var byline = document.getElementById('byline').value.trim();
+      var body = document.getElementById('body').value.trim();
+
+      if (!body) return;
+
+      document.getElementById('rendered-headline').textContent = headline;
+      document.getElementById('rendered-headline').style.display = headline ? '' : 'none';
+
+      document.getElementById('rendered-byline').textContent = byline;
+      document.getElementById('rendered-byline').style.display = byline ? '' : 'none';
+
+      var paragraphs = body.split(/\n\s*\n/);
+      var html = '';
+      for (var i = 0; i < paragraphs.length; i++) {
+        var text = paragraphs[i].trim();
+        if (text) {
+          html += '<p>' + escapeHtml(text) + '</p>';
+        }
+      }
+      document.getElementById('rendered-body').innerHTML = html;
+
+      inputForm.classList.add('hidden');
+      rendered.classList.add('active');
+      window.scrollTo(0, 0);
+    });
+
+    editBtn.addEventListener('click', function() {
+      rendered.classList.remove('active');
+      inputForm.classList.remove('hidden');
+      window.scrollTo(0, 0);
+    });
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
