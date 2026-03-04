@@ -1,0 +1,94 @@
+{
+  "authors": [
+    {
+      "name": "George Monbiot",
+      "sources": [
+        { "type": "guardian", "tag": "profile/george-monbiot" }
+      ]
+    },
+    {
+      "name": "Marina Hyde",
+      "sources": [
+        { "type": "guardian", "tag": "profile/marinahyde" }
+      ]
+    },
+    {
+      "name": "David E. Sanger",
+      "sources": [
+        { "type": "nyt", "query": "David E. Sanger" }
+      ]
+    },
+    {
+      "name": "Peter Baker",
+      "sources": [
+        { "type": "nyt", "query": "Peter Baker" }
+      ]
+    },
+    {
+      "name": "Patrick Wintour",
+      "sources": [
+        { "type": "guardian", "tag": "profile/patrickwintour" }
+      ]
+    },
+    {
+      "name": "Gabriele Marcotti",
+      "sources": [
+        {
+          "type": "web",
+          "url": "https://www.espn.com/soccer/blog/marcottis-musings/62",
+          "link_selector": "a[href*='/soccer/story/']"
+        }
+      ]
+    },
+    {
+      "name": "Jonathan Freedland",
+      "sources": [
+        { "type": "guardian", "tag": "profile/jonathanfreedland" }
+      ]
+    },
+    {
+      "name": "Simon Jenkins",
+      "sources": [
+        { "type": "guardian", "tag": "profile/simonjenkins" }
+      ]
+    },
+    {
+      "name": "John Harris",
+      "sources": [
+        { "type": "guardian", "tag": "profile/johnharris" }
+      ]
+    },
+    {
+      "name": "Sid Lowe",
+      "sources": [
+        { "type": "guardian", "tag": "profile/sidlowe" }
+      ]
+    },
+    {
+      "name": "Andy Mitten",
+      "sources": [
+        { "type": "nyt", "query": "Andy Mitten" },
+        {
+          "type": "web",
+          "url": "https://www.nytimes.com/athletic/author/andy-mitten/",
+          "link_selector": "a[href*='/athletic/']"
+        }
+      ]
+    },
+    {
+      "name": "James Horncastle",
+      "sources": [
+        { "type": "nyt", "query": "James Horncastle" },
+        {
+          "type": "web",
+          "url": "https://www.nytimes.com/athletic/author/james-horncastle/",
+          "link_selector": "a[href*='/athletic/']"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "max_articles": 500,
+    "max_age_days": 90
+  }
+}

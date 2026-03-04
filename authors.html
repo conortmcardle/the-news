@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author Feed — The Guardian Style</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #FFFFFF;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #363636;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .masthead-rule {
+      border-top: 2px solid #121212;
+      margin: 0.2rem 0;
+    }
+
+    .page-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #09357B;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    .page-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ── Controls ──────────────────────────────────── */
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+    }
+
+    .controls label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+    }
+
+    .controls select {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.5rem;
+      border: 1px solid #ccc;
+      color: #363636;
+      background: #fff;
+    }
+
+    .controls select:focus {
+      outline: none;
+      border-color: #09357B;
+    }
+
+    .sort-btn {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #363636;
+    }
+
+    .sort-btn:hover {
+      border-color: #09357B;
+      color: #09357B;
+    }
+
+    .article-count {
+      font-size: 0.75rem;
+      color: #888;
+      margin-left: auto;
+    }
+
+    /* ── Article List ─────────────────────────────── */
+    .article-list {
+      list-style: none;
+    }
+
+    .article-card {
+      padding: 1rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .article-card:first-child {
+      border-top: 1px solid #ddd;
+    }
+
+    .card-source {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #09357B;
+      font-weight: 700;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0.2rem 0;
+      color: #121212;
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      text-decoration: underline;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: #555;
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-excerpt {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: #363636;
+    }
+
+    .card-actions {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.78rem;
+    }
+
+    .card-actions a,
+    .card-actions button {
+      color: #09357B;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.78rem;
+      padding: 0;
+    }
+
+    .card-actions a:hover,
+    .card-actions button:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Column Reader Overlay ────────────────────── */
+    .reader-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    .reader-overlay.active {
+      display: block;
+    }
+
+    .reader-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2.5rem;
+    }
+
+    .reader-toolbar {
+      padding: 0.75rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .reader-close {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 0.85rem;
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      border: 1px solid #121212;
+      background: none;
+      color: #121212;
+    }
+
+    .reader-close:hover {
+      background: #121212;
+      color: #fff;
+    }
+
+    .reader-source-link {
+      font-size: 0.8rem;
+      color: #09357B;
+      text-decoration: none;
+      margin-left: auto;
+    }
+
+    .reader-source-link:hover {
+      text-decoration: underline;
+    }
+
+    .reader-headline {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #121212;
+      margin-bottom: 0.5rem;
+    }
+
+    .reader-byline {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .reader-body {
+      column-count: 5;
+      column-gap: 1.5rem;
+      column-rule: 1px solid #ccc;
+      font-size: 0.84rem;
+      line-height: 1.3;
+      color: #363636;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphenate-limit-chars: 6 3 2;
+      -webkit-hyphenate-limit-before: 3;
+      -webkit-hyphenate-limit-after: 2;
+      overflow-wrap: break-word;
+      font-kerning: normal;
+      font-feature-settings: "kern" 1, "liga" 1;
+      letter-spacing: -0.01em;
+      word-spacing: -0.05em;
+      text-justify: inter-word;
+      padding: 1rem 0 1.5rem;
+    }
+
+    .reader-body p {
+      margin-bottom: 0;
+      text-indent: 0.8em;
+    }
+
+    .reader-body p:first-child {
+      text-indent: 0.8em;
+    }
+
+    .reader-body h2,
+    .reader-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1rem 0 0.5rem;
+      column-span: none;
+      text-align: left;
+    }
+
+    .reader-body a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* ── Loading / Empty ──────────────────────────── */
+    .loading,
+    .empty {
+      text-align: center;
+      padding: 3rem 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* ── Footer ───────────────────────────────────── */
+    .footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.65rem;
+      color: #888;
+    }
+
+    .footer a {
+      color: #09357B;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container,
+      .reader-inner {
+        padding: 1.5rem 1rem;
+      }
+
+      .reader-body {
+        column-count: 3;
+      }
+
+      .reader-headline {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .reader-body {
+        column-count: 1;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      .reader-headline {
+        font-size: 2.5rem;
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .article-count {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="masthead-rule"></div>
+    <div class="page-title"><a href="index.html">The Guardian</a> — Author Feed</div>
+    <div class="masthead-rule"></div>
+
+    <div class="controls">
+      <label for="author-filter">Author</label>
+      <select id="author-filter">
+        <option value="">All authors</option>
+      </select>
+      <button class="sort-btn" id="sort-btn">Newest first &#x25BC;</button>
+      <span class="article-count" id="article-count"></span>
+    </div>
+
+    <div class="loading" id="loading">Loading articles&hellip;</div>
+    <ul class="article-list" id="article-list"></ul>
+
+    <div class="footer">
+      <div class="masthead-rule"></div>
+      <p><a href="index.html">Back to The Guardian</a> &bull; <a href="reader.html">Article reader</a></p>
+    </div>
+  </div>
+
+  <!-- Column Reader Overlay -->
+  <div class="reader-overlay" id="reader-overlay">
+    <div class="reader-inner">
+      <div class="masthead-rule"></div>
+      <div class="reader-toolbar">
+        <button class="reader-close" id="reader-close">&larr; Back to feed</button>
+        <a class="reader-source-link" id="reader-source-link" target="_blank" rel="noopener">View original &rarr;</a>
+      </div>
+      <h1 class="reader-headline" id="reader-headline"></h1>
+      <p class="reader-byline" id="reader-byline"></p>
+      <div class="masthead-rule"></div>
+      <div class="reader-body" id="reader-body"></div>
+      <div class="masthead-rule"></div>
+      <div class="reader-toolbar">
+        <button class="reader-close" id="reader-close-bottom">&larr; Back to feed</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var allArticles = [];
+      var sortNewest = true;
+
+      var listEl = document.getElementById('article-list');
+      var loadingEl = document.getElementById('loading');
+      var filterEl = document.getElementById('author-filter');
+      var sortBtn = document.getElementById('sort-btn');
+      var countEl = document.getElementById('article-count');
+      var overlay = document.getElementById('reader-overlay');
+
+      // ── Fetch data ────────────────────────────────
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'data/articles.json?t=' + Date.now(), true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          loadingEl.style.display = 'none';
+          if (xhr.status === 200) {
+            try {
+              var data = JSON.parse(xhr.responseText);
+              allArticles = data.articles || [];
+              populateFilter();
+              render();
+            } catch(e) {
+              showEmpty('Failed to parse article data.');
+            }
+          } else {
+            showEmpty('Failed to load articles. Run the scraper first.');
+          }
+        }
+      };
+      xhr.send();
+
+      // ── Populate author filter ────────────────────
+      function populateFilter() {
+        var authors = {};
+        for (var i = 0; i < allArticles.length; i++) {
+          var name = allArticles[i].author;
+          if (name && !authors[name]) {
+            authors[name] = true;
+          }
+        }
+        var sorted = Object.keys(authors).sort();
+        for (var j = 0; j < sorted.length; j++) {
+          var opt = document.createElement('option');
+          opt.value = sorted[j];
+          opt.textContent = sorted[j];
+          filterEl.appendChild(opt);
+        }
+      }
+
+      // ── Filter + sort events ──────────────────────
+      filterEl.addEventListener('change', render);
+
+      sortBtn.addEventListener('click', function() {
+        sortNewest = !sortNewest;
+        sortBtn.innerHTML = sortNewest ? 'Newest first &#x25BC;' : 'Oldest first &#x25B2;';
+        render();
+      });
+
+      // ── Render article list ───────────────────────
+      function render() {
+        var author = filterEl.value;
+        var filtered = [];
+
+        for (var i = 0; i < allArticles.length; i++) {
+          if (!author || allArticles[i].author === author) {
+            filtered.push(allArticles[i]);
+          }
+        }
+
+        filtered.sort(function(a, b) {
+          var da = a.date || '';
+          var db = b.date || '';
+          if (sortNewest) return da < db ? 1 : da > db ? -1 : 0;
+          return da > db ? 1 : da < db ? -1 : 0;
+        });
+
+        listEl.innerHTML = '';
+
+        if (filtered.length === 0) {
+          showEmpty('No articles found. Run the scraper to collect articles.');
+          countEl.textContent = '';
+          return;
+        }
+
+        countEl.textContent = filtered.length + ' article' + (filtered.length !== 1 ? 's' : '');
+
+        for (var j = 0; j < filtered.length; j++) {
+          listEl.appendChild(buildCard(filtered[j]));
+        }
+      }
+
+      // ── Build a single article card ───────────────
+      function buildCard(article) {
+        var li = document.createElement('li');
+        li.className = 'article-card';
+
+        var source = document.createElement('p');
+        source.className = 'card-source';
+        source.textContent = article.source || '';
+        li.appendChild(source);
+
+        var title = document.createElement('h3');
+        title.className = 'card-title';
+        var link = document.createElement('a');
+        link.href = article.url || '#';
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = article.title || 'Untitled';
+        title.appendChild(link);
+        li.appendChild(title);
+
+        var meta = document.createElement('p');
+        meta.className = 'card-meta';
+        var parts = [];
+        if (article.author) parts.push(article.author);
+        if (article.date) parts.push(formatDate(article.date));
+        meta.textContent = parts.join(' · ');
+        li.appendChild(meta);
+
+        if (article.excerpt) {
+          var excerpt = document.createElement('p');
+          excerpt.className = 'card-excerpt';
+          excerpt.textContent = article.excerpt;
+          li.appendChild(excerpt);
+        }
+
+        var actions = document.createElement('div');
+        actions.className = 'card-actions';
+
+        var readLink = document.createElement('a');
+        readLink.href = article.url || '#';
+        readLink.target = '_blank';
+        readLink.rel = 'noopener';
+        readLink.textContent = 'Read on ' + (article.source || 'source') + ' \u2192';
+        actions.appendChild(readLink);
+
+        if (article.body) {
+          var colBtn = document.createElement('button');
+          colBtn.textContent = 'Read in columns';
+          colBtn.addEventListener('click', (function(a) {
+            return function() { openReader(a); };
+          })(article));
+          actions.appendChild(colBtn);
+        }
+
+        li.appendChild(actions);
+        return li;
+      }
+
+      // ── Column reader ─────────────────────────────
+      function openReader(article) {
+        document.getElementById('reader-headline').textContent = article.title || '';
+        document.getElementById('reader-headline').style.display = article.title ? '' : 'none';
+
+        var bylineParts = [];
+        if (article.author) bylineParts.push(article.author);
+        if (article.date) bylineParts.push(formatDate(article.date));
+        document.getElementById('reader-byline').textContent = bylineParts.join(' · ');
+
+        var sourceLink = document.getElementById('reader-source-link');
+        sourceLink.href = article.url || '#';
+        sourceLink.textContent = 'View on ' + (article.source || 'source') + ' \u2192';
+
+        var bodyEl = document.getElementById('reader-body');
+        var body = article.body || '';
+
+        // Detect if body is HTML or plain text
+        if (body.indexOf('<') !== -1 && body.indexOf('>') !== -1) {
+          // HTML body — render directly
+          bodyEl.innerHTML = body;
+        } else {
+          // Plain text — split on double newlines into <p> elements
+          var paragraphs = body.split(/\n\s*\n/);
+          var html = '';
+          for (var i = 0; i < paragraphs.length; i++) {
+            var text = paragraphs[i].trim();
+            if (text) {
+              html += '<p>' + escapeHtml(text) + '</p>';
+            }
+          }
+          bodyEl.innerHTML = html;
+        }
+
+        overlay.classList.add('active');
+        overlay.scrollTop = 0;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeReader() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('reader-close').addEventListener('click', closeReader);
+      document.getElementById('reader-close-bottom').addEventListener('click', closeReader);
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+          closeReader();
+        }
+      });
+
+      // ── Helpers ────────────────────────────────────
+      function formatDate(dateStr) {
+        if (!dateStr) return '';
+        try {
+          var d = new Date(dateStr);
+          return d.toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          });
+        } catch(e) {
+          return dateStr;
+        }
+      }
+
+      function escapeHtml(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      function showEmpty(msg) {
+        listEl.innerHTML = '<li class="empty">' + escapeHtml(msg) + '</li>';
+      }
+    })();
+  </script>
+</body>
+</html>
