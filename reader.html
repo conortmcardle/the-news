@@ -106,6 +106,39 @@
       color: #fff;
     }
 
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    /* ── URL Fetch ────────────────────────────────── */
+    .url-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-end;
+    }
+
+    .url-row .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .url-error {
+      font-size: 0.8rem;
+      color: #c00;
+      margin-top: 0.4rem;
+      display: none;
+    }
+
+    .separator {
+      text-align: center;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      margin: 1.2rem 0;
+    }
+
     /* ── Rendered Article ───────────────────────────── */
     .rendered {
       display: none;
@@ -222,6 +255,17 @@
     <div class="masthead-rule"></div>
 
     <div class="input-form" id="input-form">
+      <div class="url-row">
+        <div class="form-group">
+          <label for="url-input">Fetch from URL</label>
+          <input type="text" id="url-input" placeholder="https://www.theguardian.com/...">
+        </div>
+        <button class="btn" id="fetch-btn">Fetch</button>
+      </div>
+      <p class="url-error" id="url-error"></p>
+
+      <div class="separator">or paste text below</div>
+
       <div class="form-group">
         <label for="headline">Headline (optional)</label>
         <input type="text" id="headline" placeholder="Article headline">
@@ -258,6 +302,66 @@
     var editBtn = document.getElementById('edit-btn');
     var inputForm = document.getElementById('input-form');
     var rendered = document.getElementById('rendered');
+    var fetchBtn = document.getElementById('fetch-btn');
+    var urlInput = document.getElementById('url-input');
+    var urlError = document.getElementById('url-error');
+
+    fetchBtn.addEventListener('click', function() {
+      var url = urlInput.value.trim();
+      if (!url) return;
+
+      urlError.style.display = 'none';
+      fetchBtn.disabled = true;
+      fetchBtn.textContent = 'Extracting\u2026';
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/api/extract?url=' + encodeURIComponent(url), true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          fetchBtn.disabled = false;
+          fetchBtn.textContent = 'Fetch';
+
+          if (xhr.status === 200) {
+            try {
+              var data = JSON.parse(xhr.responseText);
+              if (data.error) {
+                urlError.textContent = data.error;
+                urlError.style.display = 'block';
+                return;
+              }
+              document.getElementById('headline').value = data.title || '';
+              document.getElementById('byline').value = data.author || '';
+              document.getElementById('body').value = data.body || '';
+
+              // Auto-render if we got body text
+              if (data.body) {
+                renderBtn.click();
+              }
+            } catch(e) {
+              urlError.textContent = 'Failed to parse response.';
+              urlError.style.display = 'block';
+            }
+          } else {
+            try {
+              var err = JSON.parse(xhr.responseText);
+              urlError.textContent = err.error || 'Extraction failed.';
+            } catch(e) {
+              urlError.textContent = 'Could not reach extraction server.';
+            }
+            urlError.style.display = 'block';
+          }
+        }
+      };
+      xhr.send();
+    });
+
+    // Allow Enter key in URL field to trigger fetch
+    urlInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        fetchBtn.click();
+      }
+    });
 
     renderBtn.addEventListener('click', function() {
       var headline = document.getElementById('headline').value.trim();
