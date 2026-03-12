@@ -12,9 +12,9 @@
     }
 
     body {
-      background: #FFFFFF;
+      background: #FEF9F5;
       font-family: Georgia, 'Times New Roman', Times, serif;
-      color: #363636;
+      color: #121212;
       display: flex;
       justify-content: center;
       padding: 0;
@@ -66,7 +66,7 @@
       font-size: 0.9rem;
       padding: 0.5rem;
       border: 1px solid #ccc;
-      color: #363636;
+      color: #121212;
     }
 
     .form-group input:focus,
@@ -173,7 +173,7 @@
       column-rule: 1px solid #ccc;
       font-size: 0.84rem;
       line-height: 1.3;
-      color: #363636;
+      color: #121212;
       text-align: justify;
       hyphens: auto;
       -webkit-hyphens: auto;
@@ -255,27 +255,7 @@
     <div class="masthead-rule"></div>
 
     <div class="input-form" id="input-form">
-      <div class="url-row">
-        <div class="form-group">
-          <label for="url-input">Fetch from URL</label>
-          <input type="text" id="url-input" placeholder="https://www.theguardian.com/...">
-        </div>
-        <button class="btn" id="fetch-btn">Fetch</button>
-      </div>
-      <p class="url-error" id="url-error"></p>
-
-      <div class="separator">or paste text below</div>
-
       <div class="form-group">
-        <label for="headline">Headline (optional)</label>
-        <input type="text" id="headline" placeholder="Article headline">
-      </div>
-      <div class="form-group">
-        <label for="byline">Byline (optional)</label>
-        <input type="text" id="byline" placeholder="Author name">
-      </div>
-      <div class="form-group">
-        <label for="body">Article text</label>
         <textarea id="body" placeholder="Paste your article text here. Separate paragraphs with blank lines."></textarea>
       </div>
       <button class="btn" id="render-btn">Render</button>
@@ -285,8 +265,6 @@
       <div class="toolbar">
         <button class="btn btn--outline" id="edit-btn">&larr; Edit</button>
       </div>
-      <h1 class="article-headline" id="rendered-headline"></h1>
-      <p class="article-byline" id="rendered-byline"></p>
       <div class="masthead-rule"></div>
       <div class="article-body" id="rendered-body"></div>
     </div>
@@ -302,87 +280,16 @@
     var editBtn = document.getElementById('edit-btn');
     var inputForm = document.getElementById('input-form');
     var rendered = document.getElementById('rendered');
-    var fetchBtn = document.getElementById('fetch-btn');
-    var urlInput = document.getElementById('url-input');
-    var urlError = document.getElementById('url-error');
-
-    fetchBtn.addEventListener('click', function() {
-      var url = urlInput.value.trim();
-      if (!url) return;
-
-      urlError.style.display = 'none';
-      fetchBtn.disabled = true;
-      fetchBtn.textContent = 'Extracting\u2026';
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '/api/extract?url=' + encodeURIComponent(url), true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          fetchBtn.disabled = false;
-          fetchBtn.textContent = 'Fetch';
-
-          if (xhr.status === 200) {
-            try {
-              var data = JSON.parse(xhr.responseText);
-              if (data.error) {
-                urlError.textContent = data.error;
-                urlError.style.display = 'block';
-                return;
-              }
-              document.getElementById('headline').value = data.title || '';
-              document.getElementById('byline').value = data.author || '';
-              document.getElementById('body').value = data.body || '';
-
-              // Auto-render if we got body text
-              if (data.body) {
-                renderBtn.click();
-              }
-            } catch(e) {
-              urlError.textContent = 'Failed to parse response.';
-              urlError.style.display = 'block';
-            }
-          } else {
-            try {
-              var err = JSON.parse(xhr.responseText);
-              urlError.textContent = err.error || 'Extraction failed.';
-            } catch(e) {
-              urlError.textContent = 'Could not reach extraction server. URL fetch only works locally (python3 server.py).';
-            }
-            urlError.style.display = 'block';
-          }
-        }
-      };
-      xhr.send();
-    });
-
-    // Allow Enter key in URL field to trigger fetch
-    urlInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        fetchBtn.click();
-      }
-    });
 
     renderBtn.addEventListener('click', function() {
-      var headline = document.getElementById('headline').value.trim();
-      var byline = document.getElementById('byline').value.trim();
       var body = document.getElementById('body').value.trim();
-
       if (!body) return;
-
-      document.getElementById('rendered-headline').textContent = headline;
-      document.getElementById('rendered-headline').style.display = headline ? '' : 'none';
-
-      document.getElementById('rendered-byline').textContent = byline;
-      document.getElementById('rendered-byline').style.display = byline ? '' : 'none';
 
       var paragraphs = body.split(/\n\s*\n/);
       var html = '';
       for (var i = 0; i < paragraphs.length; i++) {
         var text = paragraphs[i].trim();
-        if (text) {
-          html += '<p>' + escapeHtml(text) + '</p>';
-        }
+        if (text) html += '<p>' + escapeHtml(text) + '</p>';
       }
       document.getElementById('rendered-body').innerHTML = html;
 
