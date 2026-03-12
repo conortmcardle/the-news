@@ -48,6 +48,24 @@ body {
   display: none;
 }
 
+.masthead-links {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.masthead-links a {
+  font-size: 0.65rem;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.masthead-links a:hover {
+  color: #09357B;
+}
+
 #masthead-date {
   font-size: 0.65rem;
   color: #555;
