@@ -111,6 +111,8 @@ def fetch_guardian(source, author_name):
         "page-size": 10,
         "api-key": GUARDIAN_API_KEY,
     }
+    if source.get("content_type"):
+        params["type"] = source["content_type"]
     resp = requests.get(
         "https://content.guardianapis.com/search",
         params=params,

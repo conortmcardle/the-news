@@ -27,7 +27,7 @@
     {
       "name": "Patrick Wintour",
       "sources": [
-        { "type": "guardian", "tag": "profile/patrickwintour" }
+        { "type": "guardian", "tag": "profile/patrickwintour", "content_type": "article" }
       ]
     },
     {
@@ -64,28 +64,7 @@
         { "type": "guardian", "tag": "profile/sidlowe" }
       ]
     },
-    {
-      "name": "Andy Mitten",
-      "sources": [
-        { "type": "nyt", "query": "Andy Mitten" },
-        {
-          "type": "web",
-          "url": "https://www.nytimes.com/athletic/author/andy-mitten/",
-          "link_selector": "a[href*='/athletic/']"
-        }
-      ]
-    },
-    {
-      "name": "James Horncastle",
-      "sources": [
-        { "type": "nyt", "query": "James Horncastle" },
-        {
-          "type": "web",
-          "url": "https://www.nytimes.com/athletic/author/james-horncastle/",
-          "link_selector": "a[href*='/athletic/']"
-        }
-      ]
-    }
+
   ],
   "settings": {
     "max_articles": 500,
