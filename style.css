@@ -10,9 +10,9 @@
 }
 
 body {
-  background: #FFFFFF;
+  background: #FEF9F5;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #363636;
+  color: #121212;
   display: flex;
   justify-content: center;
   padding: 0;
@@ -23,37 +23,47 @@ body {
 .broadsheet {
   width: 100%;
   max-width: 1200px;
-  background: #FFFFFF;
+  background: #FEF9F5;
   padding: 0 2.5rem;
 }
 
 /* ── Masthead ────────────────────────────────────────────── */
 .masthead {
-  text-align: center;
-  margin-bottom: 0.5rem;
+  position: relative;
+  margin-bottom: 0.25rem;
 }
 
 .masthead-rule {
-  border-top: 2px solid #121212;
-  margin: 0.2rem 0;
+  display: none;
 }
 
 .masthead-top {
   display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.3rem 0;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.15rem 0;
+}
+
+.edition {
+  display: none;
+}
+
+#masthead-date {
+  font-size: 0.65rem;
   color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .masthead-title {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 3.5rem;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #09357B;
+  color: #121212;
+  letter-spacing: 0.01em;
   padding: 0.15rem 0;
   line-height: 1;
 }
@@ -63,17 +73,14 @@ body {
   text-decoration: none;
 }
 
-.masthead-title a:hover {
-  text-decoration: none;
-}
-
 /* ── Section Nav ─────────────────────────────────────────── */
 .section-nav {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  padding: 0.25rem 0;
+  padding: 0.2rem 0;
   flex-wrap: wrap;
+  border-top: 2px solid #09357B;
 }
 
 .section-nav button {
@@ -85,143 +92,108 @@ body {
   border: none;
   cursor: pointer;
   color: #333;
-  padding: 0.15rem 0;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
+  padding: 0;
+  line-height: 1;
 }
 
 .section-nav button:hover,
 .section-nav button.active {
   color: #09357B;
-  border-bottom-color: #09357B;
 }
 
 /* ── Article Grid ────────────────────────────────────────── */
 .article-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
+  display: block;
   min-height: 60vh;
 }
 
-/* ── Individual Article ──────────────────────────────────── */
-.article {
-  padding: 0.75rem 1rem;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ddd;
+/* ── Section Block ───────────────────────────────────────── */
+.section-block {
+  margin-top: 1.5rem;
+  padding-top: 0.25rem;
+}
+
+.section-heading {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #09357B;
+  padding: 0.3rem 0 0.4rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0;
+}
+
+.section-empty {
+  font-size: 0.8rem;
+  color: #888;
+  font-style: italic;
+  padding: 0.75rem 0;
+}
+
+/* ── Article List ────────────────────────────────────────── */
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ── Article Row ─────────────────────────────────────────── */
+.article-row {
+  padding: 0.6rem 1rem 0.6rem 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  overflow: hidden;
+  gap: 0.25rem;
 }
 
-/* Remove right border on last column items */
-.article:nth-child(6n) {
-  border-right: none;
+.article-row:nth-child(3n) {
+  padding-right: 0;
 }
 
-/* ── Lead Article (3 columns, top) ───────────────────────── */
-.article--lead {
-  grid-column: span 3;
-  grid-row: span 2;
-  border-right: 1px solid #ccc;
+.row-headline {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #121212;
 }
 
-.article--lead .article-headline {
-  font-size: 1.6rem;
-  line-height: 1.2;
+.row-headline a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.article--lead .article-body {
-  font-size: 0.85rem;
-  line-height: 1.55;
+.row-headline a:hover {
+  text-decoration: underline;
 }
 
-.article--lead .article-image {
-  max-height: 300px;
+.row-meta {
+  font-size: 0.63rem;
+  color: #666;
 }
 
-/* ── Secondary Article (3 columns, beside lead) ─────────── */
-.article--secondary {
-  grid-column: span 3;
+.row-byline {
+  font-style: italic;
 }
 
-.article--secondary .article-headline {
-  font-size: 1.15rem;
+.row-date {
+  color: #888;
 }
 
-.article--secondary .article-image {
-  max-height: 180px;
-}
-
-/* ── Tertiary Article (2 columns) ────────────────────────── */
-.article--tertiary {
-  grid-column: span 2;
-}
-
-.article--tertiary .article-headline {
-  font-size: 1rem;
-}
-
-/* ── Standard (1 column) ─────────────────────────────────── */
-.article--standard .article-headline {
-  font-size: 0.85rem;
-}
-
-.article--standard .article-body {
+.row-excerpt {
   font-size: 0.72rem;
+  line-height: 1.45;
+  color: #444;
+  margin-top: 0.1rem;
 }
 
-/* ── Article Elements ────────────────────────────────────── */
+/* ── Article Elements (detail view labels) ───────────────── */
 .article-section {
   font-size: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #09357B;
   font-weight: 700;
-}
-
-.article-headline {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 700;
-  line-height: 1.25;
-  color: #121212;
-}
-
-.article-headline a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.article-headline a:hover {
-  text-decoration: underline;
-}
-
-.article-meta {
-  font-size: 0.65rem;
-  color: #666;
-  line-height: 1.4;
-}
-
-.article-byline {
-  font-style: italic;
-}
-
-.article-date {
-  display: block;
-  margin-top: 0.1rem;
-}
-
-.article-image {
-  width: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.article-body {
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: #363636;
 }
 
 /* ── Article Detail (Interior Page) ──────────────────────── */
@@ -415,32 +387,11 @@ body {
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 900px) {
   .broadsheet {
-    aspect-ratio: auto;
     padding: 1.5rem 1rem;
   }
 
-  .article-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .article--lead {
-    grid-column: span 3;
-  }
-
-  .article--secondary {
-    grid-column: span 1;
-  }
-
-  .article--tertiary {
-    grid-column: span 1;
-  }
-
-  .article:nth-child(6n) {
-    border-right: 1px solid #ccc;
-  }
-
-  .article:nth-child(3n) {
-    border-right: none;
+  .article-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .masthead-title {
@@ -457,19 +408,8 @@ body {
 }
 
 @media (max-width: 600px) {
-  .article-grid {
+  .article-list {
     grid-template-columns: 1fr;
-  }
-
-  .article--lead,
-  .article--secondary,
-  .article--tertiary {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-
-  .article {
-    border-right: none;
   }
 
   .detail-body {
