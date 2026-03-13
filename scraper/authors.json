@@ -63,8 +63,7 @@
       "sources": [
         { "type": "guardian", "tag": "profile/sidlowe" }
       ]
-    },
-
+    }
   ],
   "settings": {
     "max_articles": 500,
