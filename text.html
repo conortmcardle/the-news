@@ -7,12 +7,22 @@
   <style>
     body {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
+      font-size: 20px;
       color: #000;
       background: #fff;
       margin: 0;
       padding: 8px;
       max-width: 600px;
+    }
+    .font-controls {
+      text-align: center;
+      margin: 4px 0;
+      font-size: 0.8em;
+    }
+    .font-controls a {
+      text-decoration: none;
+      padding: 0 8px;
+      font-weight: bold;
     }
     h1 {
       font-size: 1.5em;
@@ -97,9 +107,30 @@
   <h1>The Guardian</h1>
   <p class="date" id="date"></p>
   <p class="switch"><a href="index.html">Full edition</a></p>
+  <p class="font-controls">
+    <a href="#" id="font-down">A&minus;</a> |
+    <a href="#" id="font-up">A+</a>
+  </p>
   <hr>
   <div id="articles">Loading articles&#8230;</div>
   <script>
+    (function() {
+      var fontSize = parseInt(localStorage.getItem('textFontSize')) || 20;
+      document.body.style.fontSize = fontSize + 'px';
+      document.getElementById('font-down').onclick = function(e) {
+        e.preventDefault();
+        if (fontSize > 14) { fontSize -= 2; }
+        document.body.style.fontSize = fontSize + 'px';
+        localStorage.setItem('textFontSize', fontSize);
+      };
+      document.getElementById('font-up').onclick = function(e) {
+        e.preventDefault();
+        if (fontSize < 36) { fontSize += 2; }
+        document.body.style.fontSize = fontSize + 'px';
+        localStorage.setItem('textFontSize', fontSize);
+      };
+    })();
+
     (function() {
       var API_KEY = '9b7bdb55-08b6-4fff-a63a-e9ce90d413ca';
       var API_BASE = 'https://content.guardianapis.com/search';
