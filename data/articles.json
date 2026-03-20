@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-03-19T18:56:08.125367Z",
+  "last_updated": "2026-03-20T01:56:44.460631Z",
   "articles": [
+    {
+      "id": "8d2fdd08abacacd4",
+      "title": "Trump’s Complaint About Israeli Strike on Gas Field Exposes Divergent Strategies",
+      "author": "David E. Sanger",
+      "date": "2026-03-19T20:35:47Z",
+      "url": "https://www.nytimes.com/2026/03/19/us/politics/trump-netanyahu-iran-gas-field-attack.html",
+      "source": "The New York Times",
+      "excerpt": "President Trump said he told Prime Minister Benjamin Netanyahu of Israel he disapproved of the attack, which sent energy markets reeling. But Israeli officials said the Americans were informed beforehand.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/03/19/multimedia/19DC-PREXY-tzkl/19DC-PREXY-tzkl-articleLarge.jpg",
+      "fetched_at": "2026-03-20T01:56:25.124240Z"
+    },
     {
       "id": "1b56f5354acda183",
       "title": "Some of the world’s poorest countries to lose UK aid due to 56% budget cut",
