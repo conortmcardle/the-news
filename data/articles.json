@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-03-30T07:24:52.222089Z",
+  "last_updated": "2026-03-30T13:14:59.112448Z",
   "articles": [
+    {
+      "id": "4baa0625f09ef6d0",
+      "title": "Trump Says He’s Ready for Diplomacy. Iran? Not So Much.",
+      "author": "David E. Sanger",
+      "date": "2026-03-30T10:00:10Z",
+      "url": "https://www.nytimes.com/2026/03/30/podcasts/the-daily/trump-diplomacy-iran.html",
+      "source": "The New York Times",
+      "excerpt": "The United States and Iran have struggled to find a way to begin negotiations over peace terms, with each insisting it had the upper hand in the war.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/03/30/multimedia/30DAILY-diplomacy-mjlg/30DAILY-diplomacy-mjlg-articleLarge.jpg",
+      "fetched_at": "2026-03-30T13:14:40.091126Z"
+    },
     {
       "id": "7a296f98e633c4cb",
       "title": "What the Houthis’ entry into the Iran war means for the conflict and the wider region",
