@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-03-31T07:10:47.764589Z",
+  "last_updated": "2026-03-31T13:14:08.503009Z",
   "articles": [
+    {
+      "id": "173afa0d96db849e",
+      "title": "Trump Faces a Decision on Whether to Start a Ground War in Iran",
+      "author": "David E. Sanger",
+      "date": "2026-03-31T09:04:05Z",
+      "url": "https://www.nytimes.com/2026/03/31/us/politics/trump-faces-a-decision-on-whether-to-start-a-ground-war-in-iran.html",
+      "source": "The New York Times",
+      "excerpt": "The president wants a negotiation, but the Iranians say they are refusing until a cease-fire is declared. And while Marines and the 82nd Airborne Division offer new leverage, the risks escalate quickly.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/03/31/multimedia/31dc-prexy-assess-top-cplw/31dc-prexy-assess-top-cplw-articleLarge.jpg",
+      "fetched_at": "2026-03-31T13:13:48.544989Z"
+    },
     {
       "id": "b678af1ec18a3505",
       "title": "Islamabad talks signal emergence of new four-nation bloc in Middle East",
