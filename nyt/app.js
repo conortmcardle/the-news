@@ -268,6 +268,7 @@ function showFrontPage(e, fromPopstate) {
   detail.hidden = true;
 
   // Resume auto-refresh
+  clearInterval(refreshTimer);
   refreshTimer = setInterval(fetchArticles, REFRESH_INTERVAL);
 
   if (!fromPopstate) {

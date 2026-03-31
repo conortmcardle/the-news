@@ -234,6 +234,7 @@ function showFrontPage(e, fromPopstate) {
   grid.hidden = false;
   detail.hidden = true;
 
+  clearInterval(refreshTimer);
   refreshTimer = setInterval(fetchAllSections, REFRESH_INTERVAL);
 
   if (!fromPopstate) {

@@ -8,7 +8,7 @@ and arbitrary websites. Outputs to data/articles.json.
 import hashlib
 import json
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -73,7 +73,7 @@ def extract_domain(url):
 
 
 def now_iso():
-    return datetime.utcnow().isoformat() + "Z"
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 # ── File I/O ─────────────────────────────────────────────────
@@ -343,7 +343,7 @@ def prune(articles, settings):
     max_articles = settings.get("max_articles", 500)
     max_age_days = settings.get("max_age_days", 90)
 
-    cutoff = (datetime.utcnow() - timedelta(days=max_age_days)).isoformat() + "Z"
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=max_age_days)).isoformat().replace("+00:00", "Z")
 
     # Filter by age (keep articles with no date too)
     articles = [a for a in articles if not a["date"] or a["date"] >= cutoff]
