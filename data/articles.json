@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-03-31T19:00:03.085752Z",
+  "last_updated": "2026-04-01T02:25:42.514397Z",
   "articles": [
+    {
+      "id": "f3399dd4cde6cb46",
+      "title": "Trump Says He Halted Nuclear Threat From Iran, Despite Evidence to the Contrary",
+      "author": "David E. Sanger",
+      "date": "2026-04-01T01:34:58Z",
+      "url": "https://www.nytimes.com/2026/03/31/us/politics/trump-nuclear-threat-iran.html",
+      "source": "The New York Times",
+      "excerpt": "For the second time in recent days, President Trump declared that one of the key objectives of the war had been accomplished.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/03/31/multimedia/31dc-NUKES-vis-bcwp/31dc-NUKES-vis-bcwp-articleLarge.jpg",
+      "fetched_at": "2026-04-01T02:25:24.252662Z"
+    },
     {
       "id": "52104e7f0bbd4e2a",
       "title": "Does anyone think Matt Goodwin’s book on Britain’s demise is a publishing sensation? I mean, other than him ",
