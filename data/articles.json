@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-02T18:54:18.244443Z",
+  "last_updated": "2026-04-03T02:07:00.117418Z",
   "articles": [
+    {
+      "id": "fed114fb49007f38",
+      "title": "The Awe of a Moon Launch in an Age of Trump, Turmoil and Tribal Divisions",
+      "author": "Peter Baker",
+      "date": "2026-04-02T21:58:31Z",
+      "url": "https://www.nytimes.com/2026/04/02/us/politics/artemis-ii-launch-trump.html",
+      "source": "The New York Times",
+      "excerpt": "The launch of Artemis II captured the tenor of the times in a country that can still do big things but seems forever mired in big problems.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/04/02/multimedia/02dc-memo-top2-bplh/02dc-memo-top2-bplh-articleLarge.jpg",
+      "fetched_at": "2026-04-03T02:06:44.612196Z"
+    },
     {
       "id": "3f76d8b0e5c840ad",
       "title": "How Trump Boxed Himself In on Iran",
