@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-08T07:15:36.575569Z",
+  "last_updated": "2026-04-08T13:16:26.680993Z",
   "articles": [
+    {
+      "id": "12aa5b1f0bfe90f0",
+      "title": "A Cease-Fire in Iran",
+      "author": "David E. Sanger",
+      "date": "2026-04-08T10:00:15Z",
+      "url": "https://www.nytimes.com/2026/04/08/podcasts/the-daily/cease-fire-iran-trump.html",
+      "source": "The New York Times",
+      "excerpt": "A deal came shortly before President Trump’s deadline for Tehran to fully reopen the Strait of Hormuz or face devastation.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/04/08/multimedia/08theheadlines-iran-ceasefire/08themorning-nl-iran-lbgh-articleLarge.jpg",
+      "fetched_at": "2026-04-08T13:16:10.729010Z"
+    },
     {
       "id": "c54d0e3698f03409",
       "title": "Trump Finds His Offramp With Iran. But the Causes of War Remain Unresolved.",
