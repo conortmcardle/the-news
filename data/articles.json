@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-12T02:25:22.414618Z",
+  "last_updated": "2026-04-12T07:11:16.537488Z",
   "articles": [
+    {
+      "id": "d1145eb2f1d4c0cb",
+      "title": "What Now? Vance Leaves Iran Talks Without a Deal.",
+      "author": "David E. Sanger",
+      "date": "2026-04-12T04:09:08Z",
+      "url": "https://www.nytimes.com/2026/04/12/us/politics/vance-iran-talks.html",
+      "source": "The New York Times",
+      "excerpt": "The lack of a breakthrough after 21 hours of negotiations leaves the Trump administration facing several unpalatable options.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/05/11/multimedia/11dc-prexy-zghw/11dc-prexy-zghw-articleLarge.jpg",
+      "fetched_at": "2026-04-12T07:10:57.162030Z"
+    },
     {
       "id": "61eec91170095b78",
       "title": "Is Iran Trump’s Suez crisis, or just a passing thunderstorm?",
