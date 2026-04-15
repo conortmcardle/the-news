@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-15T07:28:34.894334Z",
+  "last_updated": "2026-04-15T13:20:32.629107Z",
   "articles": [
+    {
+      "id": "ff3df0c3eae23052",
+      "title": "Trump’s Risky Strategy to Blockade Iran’s Blockade",
+      "author": "David E. Sanger",
+      "date": "2026-04-15T10:00:11Z",
+      "url": "https://www.nytimes.com/2026/04/15/podcasts/the-daily/trump-iran-blockade-strait-of-hormuz.html",
+      "source": "The New York Times",
+      "excerpt": "The United States has enforced a naval blockade of Iran that is intended to end the war on American terms.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/04/15/multimedia/15TheDaily-PROMO-ckbq/15TheDaily-PROMO-ckbq-articleLarge.jpg",
+      "fetched_at": "2026-04-15T13:20:16.303654Z"
+    },
     {
       "id": "fc08ce85d090b29c",
       "title": "Viral victory: Iran is beating the land of tech bros in the social media wars",
