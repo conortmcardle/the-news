@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-20T19:02:19.767154Z",
+  "last_updated": "2026-04-21T02:26:25.288272Z",
   "articles": [
+    {
+      "id": "a6bb7af59a02f357",
+      "title": "‘Immediate Results’ vs. ‘The Long Game’: The U.S. and Iran Face Off",
+      "author": "David E. Sanger",
+      "date": "2026-04-20T23:21:09Z",
+      "url": "https://www.nytimes.com/2026/04/20/us/politics/us-iran-negotiation-style.html",
+      "source": "The New York Times",
+      "excerpt": "As the United States and Iran make a second attempt at a deal, their negotiating styles are on a collision course.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/04/20/multimedia/20DC-TRUMP-top-hbjv/20DC-TRUMP-top-hbjv-articleLarge.jpg",
+      "fetched_at": "2026-04-21T02:26:07.454372Z"
+    },
     {
       "id": "7d866b67239da2e4",
       "title": "US spending on ‘reckless’ Iran war could have saved 87m lives, says UN",
