@@ -190,6 +190,12 @@
       }
 
       function renderArticles(articles) {
+        // Exclude Guardian Australia — at night EST the timezone difference
+        // means Australian content dominates the newest-first feed.
+        articles = articles.filter(function(a) {
+          return a.sectionId !== 'australia-news';
+        });
+
         var container = document.getElementById('articles');
         container.innerHTML = '';
 
