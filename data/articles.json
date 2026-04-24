@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-04-23T19:05:04.897698Z",
+  "last_updated": "2026-04-24T02:28:16.281787Z",
   "articles": [
+    {
+      "id": "7edd5fa49d696ad2",
+      "title": "Trump Keeps Talking About Iran’s ‘Nuclear Dust.’ What Is It?",
+      "author": "David E. Sanger",
+      "date": "2026-04-23T21:23:00Z",
+      "url": "https://www.nytimes.com/2026/04/23/us/politics/trump-iran-nuclear-dust-uranium.html",
+      "source": "The New York Times",
+      "excerpt": "First of all, it isn’t dust. It’s Iran’s stockpile of near-bomb-grade uranium, which is stored in large canisters about the size of scuba tanks.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/04/23/multimedia/23dc-nuclear-dust-gpqj/23dc-nuclear-dust-gpqj-articleLarge.jpg",
+      "fetched_at": "2026-04-24T02:28:09.292828Z"
+    },
     {
       "id": "c7cd06e8ea4da699",
       "title": "Trump may talk of regime infighting, but Iran seems united by strategy born of war",
