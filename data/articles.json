@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-05-13T08:41:22.126420Z",
+  "last_updated": "2026-05-13T14:27:56.226515Z",
   "articles": [
+    {
+      "id": "107bd526b3e6f0af",
+      "title": "Two Superpowers Across the Table",
+      "author": "David E. Sanger",
+      "date": "2026-05-13T10:00:15Z",
+      "url": "https://www.nytimes.com/2026/05/13/podcasts/the-daily/two-superpowers-across-the-table.html",
+      "source": "The New York Times",
+      "excerpt": "Here’s what to expect from the summit between President Trump and China’s top leader, Xi Jinping.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/05/13/multimedia/13DAILY-ChinaSummit-02-fbvh/13DAILY-ChinaSummit-02-fbvh-articleLarge-v2.jpg",
+      "fetched_at": "2026-05-13T14:27:50.230561Z"
+    },
     {
       "id": "5bb809c2d83e5085",
       "title": "Real Madrid president Florentino Pérez calls for elections in bizarre rant ",
