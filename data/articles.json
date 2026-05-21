@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-05-20T20:11:27.590152Z",
+  "last_updated": "2026-05-21T03:27:27.550706Z",
   "articles": [
+    {
+      "id": "79b1433b536b2041",
+      "title": "Trump’s Government Moves to Spare an Unhappy Taxpayer Named Trump",
+      "author": "Peter Baker",
+      "date": "2026-05-20T23:10:28Z",
+      "url": "https://www.nytimes.com/2026/05/20/us/politics/trump-fund-presidents-self-dealing.html",
+      "source": "The New York Times",
+      "excerpt": "No president has ever used the federal government to advance his own personal interests and those of his family and allies as expansively and openly as Mr. Trump has.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/05/20/multimedia/20dc-corruption-01-hmlc/20dc-corruption-01-hmlc-articleLarge.jpg",
+      "fetched_at": "2026-05-21T03:27:23.343888Z"
+    },
     {
       "id": "75c9d8e19d8e9ee0",
       "title": "US and Israel ‘hoped to install Ahmadinejad as Iran’s leader’",
