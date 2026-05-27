@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-05-27T09:40:26.973593Z",
+  "last_updated": "2026-05-27T15:35:40.565390Z",
   "articles": [
+    {
+      "id": "b48cb1335c9e061e",
+      "title": "The Whiplash Over a Possible Peace Deal With Iran",
+      "author": "David E. Sanger",
+      "date": "2026-05-27T10:00:10Z",
+      "url": "https://www.nytimes.com/2026/05/27/podcasts/the-daily/peace-deal-iran.html",
+      "source": "The New York Times",
+      "excerpt": "President Trump is hailing an agreement with Iran as groundbreaking, but the nuclear stockpile, enrichment and missiles have not been discussed.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/05/26/multimedia/26daily-iran-zmpv/26daily-iran-zmpv-articleLarge.jpg",
+      "fetched_at": "2026-05-27T15:35:33.718424Z"
+    },
     {
       "id": "1b059b4b4f70731e",
       "title": "Rayo Vallecano take pride from the barrio into their fight for place in history",
