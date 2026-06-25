@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-06-24T19:42:52.440701Z",
+  "last_updated": "2026-06-25T02:56:49.300646Z",
   "articles": [
+    {
+      "id": "9715f081b4b8f5eb",
+      "title": "NATO’s Leader Makes His Case to Trump for Preserving the Alliance",
+      "author": "David E. Sanger",
+      "date": "2026-06-25T00:26:51Z",
+      "url": "https://www.nytimes.com/2026/06/24/us/politics/nato-secretary-general-trump-meeting.html",
+      "source": "The New York Times",
+      "excerpt": "Using charts, Secretary General Mark Rutte appeared to defuse the president’s anger by showing that European countries were “equalizing” defense spending with the U.S.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/06/24/multimedia/24DC-TRUMP-NATO-flbw/24DC-TRUMP-NATO-flbw-articleLarge.jpg",
+      "fetched_at": "2026-06-25T02:56:43.240723Z"
+    },
     {
       "id": "85feb9d758b72dcd",
       "title": "Trump Is Making Big Claims About the Iran Talks. Iran Keeps Contradicting Him.",
