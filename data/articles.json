@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-07-10T09:30:20.749816Z",
+  "last_updated": "2026-07-10T14:19:31.743387Z",
   "articles": [
+    {
+      "id": "521b33d140ef4d1e",
+      "title": "Bombing and a Tentative Accord Didn’t Work. Does Trump Have a Plan C for Iran?",
+      "author": "David E. Sanger",
+      "date": "2026-07-10T00:52:54Z",
+      "url": "https://www.nytimes.com/2026/07/09/us/politics/trump-iran-war.html",
+      "source": "The New York Times",
+      "excerpt": "The administration appears to be reverting to an all-stick, no-carrot approach. But it has yet to answer why it believes economic warfare and bombing will yield a different result this time.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/07/07/multimedia/09dc-prexy/07trump-news-header2-qzbg-articleLarge.jpg",
+      "fetched_at": "2026-07-10T14:19:25.038860Z"
+    },
     {
       "id": "40cdae82702eef44",
       "title": "As Iran Cease-Fire Frays, Trump Faces a Muddled War and Unpalatable Options",
