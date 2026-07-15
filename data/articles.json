@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-07-14T19:15:15.692116Z",
+  "last_updated": "2026-07-15T02:09:33.885025Z",
   "articles": [
+    {
+      "id": "d2c64bf645b91f57",
+      "title": "In Iran, Trump Has Found an Opponent He Cannot Easily Dominate",
+      "author": "Peter Baker",
+      "date": "2026-07-14T23:01:39Z",
+      "url": "https://www.nytimes.com/2026/07/14/us/politics/iran-trump-war.html",
+      "source": "The New York Times",
+      "excerpt": "The president is accustomed to forcing other countries to bend to his will. But he is struggling to come up with a strategy to extract Iranian concessions as the cease-fire he brokered collapses.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/07/14/multimedia/14dc-trump-iran-vztw/14dc-trump-iran-vztw-articleLarge.jpg",
+      "fetched_at": "2026-07-15T02:09:29.033269Z"
+    },
     {
       "id": "884a18ac23423272",
       "title": "Trump Says Fighting With Iran Has Resumed as He Orders Blockade and Tolls",
