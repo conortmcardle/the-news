@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-07-17T08:05:18.789086Z",
+  "last_updated": "2026-07-17T13:21:43.345077Z",
   "articles": [
+    {
+      "id": "f86dfe61ed45c711",
+      "title": "Trump Promised Proof of Election Tampering. His Document Release Fell Far Short.",
+      "author": "David E. Sanger",
+      "date": "2026-07-17T09:03:40Z",
+      "url": "https://www.nytimes.com/2026/07/17/us/politics/trump-election-tampering-document-release.html",
+      "source": "The New York Times",
+      "excerpt": "In the end, the documentary evidence that President Trump claimed would prove his case appeared bound to disappoint those who expected bombshell revelations.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/07/16/multimedia/16dc-foreign-interference-tzgc/16dc-foreign-interference-tzgc-articleLarge.jpg",
+      "fetched_at": "2026-07-17T13:21:38.501527Z"
+    },
     {
       "id": "ab84cbbefb4bc496",
       "title": "A Trump Obsession That Carries a Cost for Democracy",
