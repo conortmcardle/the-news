@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-07-18T07:44:24.888767Z",
+  "last_updated": "2026-07-18T13:08:00.818465Z",
   "articles": [
+    {
+      "id": "147f27590933f351",
+      "title": "How Presidential Travel Is the Ultimate Expression of Political Power",
+      "author": "Peter Baker",
+      "date": "2026-07-18T12:32:43Z",
+      "url": "https://www.nytimes.com/2026/07/18/us/politics/trump-air-force-one-travel.html",
+      "source": "The New York Times",
+      "excerpt": "From horse-drawn presidential coaches to Air Force One, presidents have used various modes of transportation to project an image of America for nearly 250 years.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/07/17/multimedia/00DC-PRESIDENTIAL-TRAVEL-TOP-fjlz/00DC-PRESIDENTIAL-TRAVEL-TOP-fjlz-articleLarge.jpg",
+      "fetched_at": "2026-07-18T13:07:56.055993Z"
+    },
     {
       "id": "f86dfe61ed45c711",
       "title": "Trump Promised Proof of Election Tampering. His Document Release Fell Far Short.",
