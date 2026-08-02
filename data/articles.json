@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-08-01T19:04:14.258569Z",
+  "last_updated": "2026-08-02T02:31:41.620208Z",
   "articles": [
+    {
+      "id": "72756104b418d254",
+      "title": "Trump’s Polling Numbers Hit a New Low. Don’t Expect Him to Change Course.",
+      "author": "Peter Baker",
+      "date": "2026-08-01T19:30:50Z",
+      "url": "https://www.nytimes.com/2026/08/01/us/politics/trump-polls-approval-rating.html",
+      "source": "The New York Times",
+      "excerpt": "Barely a third of Americans approve of Mr. Trump’s handling of the job, putting him at historic depths for a second-term president at this stage of his tenure.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/01/multimedia/01dc-trump-polls-tmpz/01dc-trump-polls-tmpz-articleLarge.jpg",
+      "fetched_at": "2026-08-02T02:31:37.887203Z"
+    },
     {
       "id": "375add2218a9eef8",
       "title": "At Graham’s Farewell, a Glimpse Into Power in Trump’s Washington",
