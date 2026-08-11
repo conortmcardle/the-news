@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-11T07:01:26.235218Z",
+  "last_updated": "2026-08-11T12:56:52.407950Z",
   "articles": [
     {
       "id": "c289b9737bba2468",
@@ -1272,18 +1272,6 @@
       "body": "",
       "image": "",
       "fetched_at": "2026-05-14T02:53:22.462757Z"
-    },
-    {
-      "id": "107bd526b3e6f0af",
-      "title": "Two Superpowers Across the Table",
-      "author": "David E. Sanger",
-      "date": "2026-05-13T10:00:15Z",
-      "url": "https://www.nytimes.com/2026/05/13/podcasts/the-daily/two-superpowers-across-the-table.html",
-      "source": "The New York Times",
-      "excerpt": "Here’s what to expect from the summit between President Trump and China’s top leader, Xi Jinping.",
-      "body": "",
-      "image": "https://static01.nyt.com/images/2026/05/13/multimedia/13DAILY-ChinaSummit-02-fbvh/13DAILY-ChinaSummit-02-fbvh-articleLarge-v2.jpg",
-      "fetched_at": "2026-05-13T14:27:50.230561Z"
     }
   ]
 }
