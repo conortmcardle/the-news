@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-08-14T18:49:25.952504Z",
+  "last_updated": "2026-08-15T01:03:51.442590Z",
   "articles": [
+    {
+      "id": "ccbe90ccf16436cf",
+      "title": "How Do You Report on a Presidential Ruse?",
+      "author": "Peter Baker",
+      "date": "2026-08-14T19:20:46Z",
+      "url": "https://www.nytimes.com/2026/08/14/insider/trump-air-force-one-decoy-reporters.html",
+      "source": "The New York Times",
+      "excerpt": "President Trump’s Air Force One subterfuge duped potential adversaries — and the press. Here’s what happened.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/14/multimedia/14-insider-af1-03-ktgb/14-insider-af1-03-ktgb-articleLarge.jpg",
+      "fetched_at": "2026-08-15T01:03:45.130232Z"
+    },
     {
       "id": "9948a7ab16c58df4",
       "title": "With Trump Secretly Evacuated, Imperiled Air Force One Became a Flying Decoy",
