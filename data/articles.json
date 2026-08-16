@@ -1,6 +1,30 @@
 {
-  "last_updated": "2026-08-16T06:34:16.376473Z",
+  "last_updated": "2026-08-16T12:32:49.578366Z",
   "articles": [
+    {
+      "id": "e3e2daae7bd7a996",
+      "title": "In ‘The Brink of War,’ a Return to an Era of Razor-Edge Diplomacy",
+      "author": "Peter Baker",
+      "date": "2026-08-16T09:02:28Z",
+      "url": "https://www.nytimes.com/2026/08/16/us/politics/brink-of-war-reagan-nuclear-weapons.html",
+      "source": "The New York Times",
+      "excerpt": "A new film depicts the 1986 nuclear arms summit in Reykjavik, Iceland, between Ronald Reagan and Mikhail Gorbachev, which both offered and dashed hopes of a dramatic breakthrough.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/16/us/16dc-reykjavik-3/16dc-reykjavik-3-articleLarge.jpg",
+      "fetched_at": "2026-08-16T12:32:46.146244Z"
+    },
+    {
+      "id": "10e9337d5ed6550a",
+      "title": "As Iran War Turns Into Economic Battle, a New U.S. Strategy Recalls Old Ones",
+      "author": "David E. Sanger",
+      "date": "2026-08-16T09:02:18Z",
+      "url": "https://www.nytimes.com/2026/08/16/world/middleeast/iran-war-us-trump.html",
+      "source": "The New York Times",
+      "excerpt": "The United States and Iran are poised to blow past a deadline they had set themselves to broker terms on peace and Iran’s nuclear program.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/16/multimedia/16int-iran-mou-01-jzwl/16int-iran-mou-01-jzwl-articleLarge.jpg",
+      "fetched_at": "2026-08-16T12:32:44.768507Z"
+    },
     {
       "id": "ccbe90ccf16436cf",
       "title": "How Do You Report on a Presidential Ruse?",
