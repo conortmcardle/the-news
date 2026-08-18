@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-08-17T18:34:19.639145Z",
+  "last_updated": "2026-08-18T01:02:42.377199Z",
   "articles": [
+    {
+      "id": "2504a37b0c6b173d",
+      "title": "Facing Quagmire in Iran, Trump Turns to a Familiar Face: North Korea’s Kim Jong-un",
+      "author": "David E. Sanger",
+      "date": "2026-08-17T23:24:59Z",
+      "url": "https://www.nytimes.com/2026/08/17/us/politics/trump-iran-north-korea-kim-jong-un.html",
+      "source": "The New York Times",
+      "excerpt": "Seven years ago, President Trump failed to disarm North Korea and walked away. Could the same thing happen with Iran?",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/17/multimedia/17dc-prexy-photo-jflk/17dc-prexy-photo-jflk-articleLarge.jpg",
+      "fetched_at": "2026-08-18T01:02:36.339596Z"
+    },
     {
       "id": "e3e2daae7bd7a996",
       "title": "In ‘The Brink of War,’ a Return to an Era of Razor-Edge Diplomacy",
