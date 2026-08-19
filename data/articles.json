@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-08-18T18:33:26.709396Z",
+  "last_updated": "2026-08-19T01:03:51.590162Z",
   "articles": [
+    {
+      "id": "82f4d208736e5f83",
+      "title": "Threatening Friends and Courting Enemies in Trump’s ‘Upside-Down World’",
+      "author": "Peter Baker",
+      "date": "2026-08-18T23:06:00Z",
+      "url": "https://www.nytimes.com/2026/08/18/us/politics/trumps-upside-down-world.html",
+      "source": "The New York Times",
+      "excerpt": "The president’s hostility to allies like Oman, Canada and South Korea, and his affection for adversaries like North Korea, may still shock some. But it comes as little surprise after a decade of upheaval.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/18/multimedia/18dc-trump-allies01-photo-gqbf/18dc-trump-allies01-photo-gqbf-articleLarge.jpg",
+      "fetched_at": "2026-08-19T01:03:45.524716Z"
+    },
     {
       "id": "2504a37b0c6b173d",
       "title": "Facing Quagmire in Iran, Trump Turns to a Familiar Face: North Korea’s Kim Jong-un",
@@ -1116,18 +1128,6 @@
       "body": "<p>Oil markets will enter the “red zone” by July and August as stocks dwindle before the summer travel season amid a shortage of fresh oil exports from the Middle East, the executive director of the International Energy Agency warned on Thursday.</p> <p>Fatih Birol added that the most important solution to the Iran war energy shock was a full and unconditional reopening of the strait of Hormuz.</p> <p>Speaking to the London thinktank Chatham House, Birol said it was open to IEA members to release more strategic oil reserves, as they had previously in March, and said the IEA stood ready to coordinate. As much as 80% of IEA’s collective reserves have not been released.</p> <p>He warned that while stocks were eroding, no new oil was coming from the Middle East and the demand was increasing, mainly caused by the travel season. “This may be difficult and we may be entering the red zone in July-August if we don’t see some improvements,” Birol said.</p> <p>Adding that he had “never seen the dark and long shadow of geopolitics so dominant in the energy sector”, Birol also said he feared extremist parties in Europe might opportunistically abuse the coming inflation to argue it represents the failure of existing political systems when, in truth, the price of oil is set internationally.</p> <p>Birol also said that Iran did not have endless storage capacity and its industry would face difficulties.</p>    <p>The IEA chief has already warned that he regards the oil shock as more dramatic than three previous oil shocks: in 1973, 1979 and the 2022 crisis caused by Russia’s full-scale invasion of Ukraine. He said 14m barrels of oil a day were missing from the market because of the disruption.</p> <p>He saw no prospect of oil production recovering fully for at least a year, including in the United Arab Emirates, and said that some countries heavily dependent on oil revenues to fund their budget, such as Iraq, could find it impossible to reinvest in oil production for many years.</p> <p>Overall, the reputation of the Middle East as a secure supplier of energy had been damaged, he said, predicting that countries would pay a premium for supplies from secure sources and for renewable energy.</p> <p>Birol predicted that governments around the world would review their energy strategies in the next few years and “look for new options” for fuel imports. He added that countries would also turn to other energy sources, including renewables, nuclear – and, to a lesser extent, coal – and that domestically, energy production “that makes economic sense will get a push”.</p>    <p>His warning came as Pakistan, the mediator in the talks between Iran and the US, hit difficulties after claims were made that a breakthrough was imminent.</p> <p>Pakistan’s interior minister, Mohsin Naqvi, is still in Tehran on his second visit of the week, underlining the severity of the crisis.</p> <p>It has been expected that Pakistan’s military chief, Field Marshal Asim Munir, would visit Tehran on Thursday to try to narrow the gap between the two sides, but a postponement of his visit suggested efforts to do so were not bearing fruit.</p> <p>Iran’s supreme leader, Mojtaba Khamenei, reaffirmed that Iran would not allow its stockpiles of highly enriched uranium to be exported to a third country, such as Russia. That stance does not rule out the stockpile being downblended to much lower levels of purity under the administration of the UN nuclear inspectorate, the International Atomic Energy Agency (IAEA).</p> <p>Donald Trump has been making typically contradictory noises about the need for the stockpile to be exported, and how he will react if no agreement is reached with Iran.</p> <p>Trump recently downplayed the importance of the export of the enriched uranium, saying last Thursday on Fox News that the US wanted the enriched uranium “more for public relations than it is for anything else”. At least half of the enriched uranium, central to building a nuclear bomb, is believed to be buried at the bombed Isfahan nuclear facility.</p> <p>He elaborated: “We have nine cameras on that site, on those three sites, 24 hours a day,” Trump said. “We know exactly what’s happening. Nobody’s even gotten close to it.”</p>    <p>On Thursday the president insisted that the US would eventually recover the material, telling reporters: “We will get it. We don’t need it, we don’t want it. We’ll probably destroy it after we get it, but we’re not going to let them have it.”</p> <p>Iran has 440.9kg (972lb) of uranium that is enriched up to 60% purity, which is a short, technical step away from weapon-grade levels of 90%, according to the IAEA.</p> <p>Separately, Iran announced the boundaries of the proposed Persian Gulf Strait Authority, the body it has established to oversee the movement of commercial shipping through the narrow strait on Iran’s southern coast.</p> <p>The United Arab Emirates’ senior diplomatic adviser, Anwar Gargash, described the map showing the boundaries as a fantasy. He said: “After the brutal Iranian aggression, Tehran’s regime was attempting to solidify a new reality born out of an obvious military defeat.” Gargash added that attempts to control the strait or infringe upon the UAE’s maritime sovereignty were unrealistic and “a fantasy”.</p>",
       "image": "https://media.guim.co.uk/8496125c116266353efee78ddde7ba1308128228/417_0_4167_3333/500.jpg",
       "fetched_at": "2026-05-21T19:51:11.961498Z"
-    },
-    {
-      "id": "79b1433b536b2041",
-      "title": "Trump’s Government Moves to Spare an Unhappy Taxpayer Named Trump",
-      "author": "Peter Baker",
-      "date": "2026-05-20T23:10:28Z",
-      "url": "https://www.nytimes.com/2026/05/20/us/politics/trump-fund-presidents-self-dealing.html",
-      "source": "The New York Times",
-      "excerpt": "No president has ever used the federal government to advance his own personal interests and those of his family and allies as expansively and openly as Mr. Trump has.",
-      "body": "",
-      "image": "https://static01.nyt.com/images/2026/05/20/multimedia/20dc-corruption-01-hmlc/20dc-corruption-01-hmlc-articleLarge.jpg",
-      "fetched_at": "2026-05-21T03:27:23.343888Z"
     }
   ]
 }
