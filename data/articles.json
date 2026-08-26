@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-08-25T18:35:06.624863Z",
+  "last_updated": "2026-08-26T01:07:01.946865Z",
   "articles": [
+    {
+      "id": "93d421ebad944011",
+      "title": "At Home and Abroad, Deference to Trump Turns Increasingly to Defiance",
+      "author": "Peter Baker",
+      "date": "2026-08-25T21:42:26Z",
+      "url": "https://www.nytimes.com/2026/08/25/us/politics/trump-polls-tariffs-carney.html",
+      "source": "The New York Times",
+      "excerpt": "While the president remains the most dominant figure in the world, other leaders and institutions are pushing back more vigorously than at the beginning of his second term.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/08/25/multimedia/25dc-trump-qkcv/25dc-trump-qkcv-articleLarge.jpg",
+      "fetched_at": "2026-08-26T01:06:57.611184Z"
+    },
     {
       "id": "37e03e8aab20e5bf",
       "title": "U.S. Attempt to Strangle Iran’s Economy Depends on China’s Cooperation",
