@@ -1,6 +1,18 @@
 {
-  "last_updated": "2026-09-11T02:56:14.789995Z",
+  "last_updated": "2026-09-11T10:34:48.016795Z",
   "articles": [
+    {
+      "id": "47c03dbe21438327",
+      "title": "When the Nation Was Attacked, Times Journalists Got to Work",
+      "author": "David E. Sanger",
+      "date": "2026-09-11T07:00:16Z",
+      "url": "https://www.nytimes.com/2026/09/11/insider/new-york-times-reporters-911.html",
+      "source": "The New York Times",
+      "excerpt": "Seven reporters and editors at The New York Times reflect on the scenes they witnessed and the stories they wrote on Sept. 11, 2001.",
+      "body": "",
+      "image": "https://static01.nyt.com/images/2026/09/11/multimedia/11a2_insider-911-qlgj/11a2_insider-911-qlgj-articleLarge.jpg",
+      "fetched_at": "2026-09-11T10:34:41.076870Z"
+    },
     {
       "id": "c808b7842390eb92",
       "title": "25 Years After 9/11, Trump Personifies a Nation Moving On",
