@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-15T20:50:55.027524Z",
+  "last_updated": "2026-09-16T03:15:57.209264Z",
   "articles": [
     {
       "id": "189fde799534c022",
@@ -408,18 +408,6 @@
       "body": "",
       "image": "https://static01.nyt.com/images/2026/06/23/multimedia/23dc-prexy-cphm/23dc-prexy-cphm-articleLarge.jpg",
       "fetched_at": "2026-06-24T02:57:37.133320Z"
-    },
-    {
-      "id": "8286403354b476da",
-      "title": "Trump Demanded Iran’s ‘Unconditional Surrender.’ He Got a Surprise Instead.",
-      "author": "David E. Sanger",
-      "date": "2026-06-18T00:51:29Z",
-      "url": "https://www.nytimes.com/2026/06/17/us/politics/trump-iran-deal-nuclear-program-strait.html",
-      "source": "The New York Times",
-      "excerpt": "While the Iranians suffered substantial losses in the war, they emerged from a confrontation with the world’s most powerful military having proved they can use economic chaos as a weapon.",
-      "body": "",
-      "image": "https://static01.nyt.com/images/2026/06/17/multimedia/17DC-PREXY-mvqj/17DC-PREXY-mvqj-articleLarge.jpg",
-      "fetched_at": "2026-06-18T03:40:33.858097Z"
     }
   ]
 }
